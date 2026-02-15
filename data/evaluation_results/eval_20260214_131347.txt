@@ -1,0 +1,46 @@
+EVALUATION RUN: 20260214_131347
+STARTED: 2026-02-14T13:13:47.006749
+MEMORY TYPE: CUSTOM
+================================================================================
+
+TEST_CASE:{"input": "What are the requirements for high-risk AI systems under EU AI Act?", "query_type": "compliance", "latency": 29.73, "citation_count": 0, "relevancy_score": 0.75, "faithfulness_score": 1.0, "hallucination_score": 0, "loop_count": 0, "response_length": 3903, "timestamp": "2026-02-14T13:15:17.851961"}
+TEST_CASE:{"input": "Compare NIST AI RMF and EU AI Act approaches to AI governance", "query_type": "comparison", "latency": 25.3, "citation_count": 0, "relevancy_score": 0.778, "faithfulness_score": 1.0, "hallucination_score": 0, "loop_count": 0, "response_length": 4779, "timestamp": "2026-02-14T13:16:49.633151"}
+TEST_CASE:{"input": "What security risks should I consider for AI chatbots?", "query_type": "security_risk", "latency": 38.7, "citation_count": 0, "relevancy_score": 0.87, "faithfulness_score": 1.0, "hallucination_score": 0, "loop_count": 0, "response_length": 3464, "timestamp": "2026-02-14T13:18:26.107248"}
+TEST_CASE:{"input": "What is the NIST AI Risk Management Framework?", "query_type": "definition", "latency": 20.24, "citation_count": 0, "relevancy_score": 1.0, "faithfulness_score": 0.889, "hallucination_score": 0, "loop_count": 0, "response_length": 2854, "timestamp": "2026-02-14T13:19:58.156886"}
+TEST_CASE:{"input": "What documentation is required for medical AI systems under EU AI Act?", "query_type": "compliance", "latency": 29.15, "citation_count": 0, "relevancy_score": 0.545, "faithfulness_score": 0.947, "hallucination_score": 0, "loop_count": 0, "response_length": 3739, "timestamp": "2026-02-14T13:21:32.983536"}
+TEST_CASE:{"test_id": "memory_001", "fact_type": "personal_info", "query": "What's my role and where do I work?", "expected_facts": ["compliance officer", "healthcare company", "California"], "memory_score": 0.9, "memory_reason": "The response correctly mentions 'healthcare company' and 'California', which are two out of the three expected facts. The only missing fact is 'compliance officer', but it can be implied from the context that the user has this role, as they are mentioned as a compliance officer in the conversation.", "latency": 18.56, "timestamp": "2026-02-14T13:22:33.204935"}
+TEST_CASE:{"test_id": "memory_002", "fact_type": "preferences", "query": "Tell me about the EU AI Act", "expected_facts": ["brief", "summaries", "bullet points"], "memory_score": 0.9, "memory_reason": "The response mentions 'summaries' and 'bullet points' indirectly through its structured format, including headings, subheadings, and numbered lists. It also provides a clear overview of the EU AI Act's key aspects, such as its focus on high-risk AI systems, conformity assessment procedures, and AI certification. However, it does not explicitly mention 'brief' facts.", "latency": 27.47, "timestamp": "2026-02-14T13:23:31.647608"}
+TEST_CASE:{"test_id": "memory_003", "fact_type": "expertise", "query": "What do you know about my current project?", "expected_facts": ["AI governance", "medical devices", "NIST AI RMF"], "memory_score": 0.7, "memory_reason": "The response correctly mentions 'AI governance' and 'NIST AI RMF', which are the most relevant facts to the query. However, it does not explicitly mention 'medical devices'. Although the context implies that the project is related to medical devices, the fact itself is not directly mentioned.", "latency": 15.4, "timestamp": "2026-02-14T13:24:45.137733"}
+TEST_CASE:{"test_id": "fact_001", "input": "I'm a data scientist at Google in Mountain View", "expected_facts": [{"category": "personal_info", "field": "role", "value": "data scientist"}, {"category": "personal_info", "field": "company", "value": "Google"}, {"category": "personal_info", "field": "location", "value": "Mountain View"}], "extracted_facts": [{"category": "personal_info", "field": "role", "value": "data scientist", "confidence": 0.8, "source_context": "I'm a data scientist at Google in Mountain View"}], "extraction_score": 0.96, "extraction_reason": "The extracted fact matches the expected category, field, and value for 'role' and 'company', but not for 'location'. The precision is high because only one correct fact was extracted out of one. The recall is moderate because two out of three expected facts were extracted.", "latency": 18.98, "timestamp": "2026-02-14T13:25:13.891973"}
+TEST_CASE:{"test_id": "fact_002", "input": "My colleague works at Microsoft", "expected_facts": [], "extracted_facts": [], "extraction_score": 0.6, "extraction_reason": "The extracted facts mostly match the expected categories, but some expected facts were missed. The precision is high because most of the extracted facts are correct, but the recall is lower because not all expected facts were captured.", "latency": 26.31, "timestamp": "2026-02-14T13:25:45.242915"}
+TEST_CASE:{"test_id": "fact_003", "input": "I need detailed technical explanations with code examples", "expected_facts": [{"category": "preference", "field": "detail_level", "value": "detailed"}, {"category": "preference", "field": "response_style", "value": "technical explanations"}], "extracted_facts": [{"category": "preference", "field": "detail_level", "value": "detailed", "confidence": 0.8, "source_context": "user's message"}], "extraction_score": 0.96, "extraction_reason": "The extracted fact matches the expected category, field, and value, but has a slightly lower confidence score (0.8 vs. no confidence given for expected facts).", "latency": 28.53, "timestamp": "2026-02-14T13:28:45.757572"}
+
+================================================================================
+
+  RAG QUALITY METRICS (n=5)
+    Average Relevancy:     0.789
+    Average Faithfulness:  0.967
+    Average Hallucination: 0.000
+    Average Latency:       28.62s
+    Average Citations:     0.0
+
+  MEMORY RETRIEVAL METRICS (n=3)
+    Average Memory Score:  0.833
+    Average Latency:       20.48s
+
+    By Fact Type:
+      personal_info: 0.900 (n=1)
+      preferences: 0.900 (n=1)
+      expertise: 0.700 (n=1)
+
+  FACT EXTRACTION METRICS (n=3)
+    Average Extraction Score: 0.840
+    Average Latency:          24.61s
+
+   OVERALL SUMMARY
+        Total Tests Run:    11
+        Successful:         11
+        Errors:             0
+
+Results saved to: data/evaluation_results/eval_20260214_131347.txt
+================================================================================
