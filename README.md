@@ -2,7 +2,7 @@
 
 A multi-step, memory-aware RAG agent designed to answer questions about AI compliance and security frameworks (NIST AI RMF, EU AI Act, ISO 42001, etc.).
 
-Built with **LangGraph**, **LangChain**, and **Mem0** to provide context-aware, verifiable, and safe responses.
+Built with **LangGraph**, **LangChain**, and **Mem0** to provide context-aware, verifiable responses.
 
 ## 🚀 Key Features
 
